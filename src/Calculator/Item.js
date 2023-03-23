@@ -1,7 +1,10 @@
 import { Grid, Card, AspectRatio, Box, Typography, Button } from "@mui/joy";
+import { useTranslation } from "react-i18next";
 import { Image } from "./Image";
-// TODO[i18n]
+
 export function Item({ onClick, name, stickers, img }) {
+  const { t } = useTranslation();
+
   return (
     <Grid xs={12} sm={6} md={4}>
       <Card variant="outlined">
@@ -18,8 +21,8 @@ export function Item({ onClick, name, stickers, img }) {
         </AspectRatio>
         <Box sx={{ display: "flex" }}>
           <div>
-            <Typography level="body3">Number of stickers:</Typography>
-            <Typography fontSize="lg" fontWeight="lg">
+            <Typography level="body3">{t("item.numberOfStamps")}</Typography>
+            <Typography fontSize="lg" fontWeight="lg" >
               {stickers}
             </Typography>
           </div>
@@ -30,7 +33,7 @@ export function Item({ onClick, name, stickers, img }) {
             sx={{ ml: "auto", fontWeight: 600 }}
             onClick={onClick}
           >
-            Add
+            {t("item.addButton")}
           </Button>
         </Box>
       </Card>

@@ -2,10 +2,10 @@ import { Grid, Card, Typography, Button, Box, Stack } from "@mui/joy";
 import Input from "@mui/joy/Input";
 import { useState } from "react";
 import { calcNumberOfStickers } from "./calcNumberOfStickers";
-
-// TODO[i18n]
+import { useTranslation } from "react-i18next";
 
 export function CustomSizeItem({ onAdd }) {
+  const { t } = useTranslation();
   const [sizes, setSizes] = useState([0, 0, 0]);
   const [weight, setWeight] = useState(0);
   const stickers = calcNumberOfStickers(sizes, weight);
@@ -16,10 +16,10 @@ export function CustomSizeItem({ onAdd }) {
     <Grid xs={12} sm={6} md={4}>
       <Card variant="outlined">
         <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
-          Custom object
+          {t("customSizeItem.title")}
         </Typography>
         <Typography level="body2" sx={{ mt: 2 }}>
-          Provide 3 dimensions [cm]
+          {t("customSizeItem.subtitleDimensions")}
         </Typography>
         <Stack direction="row" spacing={1}>
           {sizes.map((size, index) => (
@@ -30,7 +30,9 @@ export function CustomSizeItem({ onAdd }) {
             />
           ))}
         </Stack>
-        <Typography level="body2">Provide approx weight</Typography>
+        <Typography level="body2">
+          {t("customSizeItem.subtitleWeight")}
+        </Typography>
         <Input
           value={weight}
           endDecorator={<Typography>kg</Typography>}
@@ -38,7 +40,9 @@ export function CustomSizeItem({ onAdd }) {
         />
         <Box sx={{ display: "flex", mt: 2 }}>
           <div>
-            <Typography level="body3">Number of stamps:</Typography>
+            <Typography level="body3">
+              {t("item.numberOfStamps")}
+            </Typography>
             <Typography fontSize="lg" fontWeight="lg">
               {stickers}
             </Typography>
@@ -55,7 +59,7 @@ export function CustomSizeItem({ onAdd }) {
               })
             }
           >
-            Add
+            {t("customSizeItem.addButton")}
           </Button>
         </Box>
       </Card>
