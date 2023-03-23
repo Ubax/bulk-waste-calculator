@@ -3,9 +3,11 @@ import { useState } from "react";
 import { INITIAL_ITEMS } from "./constants";
 import { CustomSizeItem } from "./CustomSizeItem";
 import { Item } from "./Item";
-// TODO[i18n]
+import { useTranslation } from "react-i18next";
+
 export function ItemsGrid({items, setItems}) {
   const [customItemKey, setCustomItemKey] = useState(0);
+  const { t } = useTranslation();
 
   const addItem = ({ name, stickers }) => {
     const index = items.findIndex((item) => item.name === name);
@@ -33,7 +35,7 @@ export function ItemsGrid({items, setItems}) {
   return (
     <>
       <Typography level="h2" fontSize="md" sx={{ my: 1 }}>
-        Objects
+      {t("itemsGrid.title")}
       </Typography>
       <Grid container spacing={1}>
         <CustomSizeItem

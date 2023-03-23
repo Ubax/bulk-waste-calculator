@@ -1,9 +1,10 @@
 import { Container, Stack, Typography } from "@mui/joy";
 import { STAMP_PRICE } from "./constants";
+import { useTranslation } from "react-i18next";
 
-// TODO[i18n]
 export function MobileFooter(props) {
 
+    const { t } = useTranslation();
   const sum = props.items.reduce((result, { quantity, stickers }) => {
     return result + quantity * stickers;
   }, 0);
@@ -28,10 +29,10 @@ export function MobileFooter(props) {
         justifyContent="center"
         spacing={1}
       >
-        <Typography level="h6">Number of stamps: {sum}</Typography>
+        <Typography level="h6">{t("summary.numberOfStamps")} {sum}</Typography>
         {sum > 0 && (
-          <Typography level="h6">
-            Total price: {sum} stamps x {STAMP_PRICE} CHF ={" "}
+          <Typography fontSize="md">
+            {t("summary.totalPriceInfo", { sum, stampPrice: STAMP_PRICE })}
             <Typography fontSize="md" textColor={"blue"}>
               {(sum * STAMP_PRICE).toFixed(2)} CHF{" "}
             </Typography>

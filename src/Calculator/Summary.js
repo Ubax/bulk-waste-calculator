@@ -40,17 +40,19 @@ export function Summary({ items, changeItemQuantity }) {
       <Stack spacing={1}>
         {summaryList.length > 0 ? summaryList : emptylistPlaceholder}
         <Divider />
-        <Typography fontSize="md">
-          {t("summary.numberOfStamps", { sum })}
-        </Typography>
-        {sum > 0 && (
+        <div style={{ marginLeft: 8 }}>
           <Typography fontSize="md">
-            {t("summary.totalPriceInfo", { sum, stampPrice: STAMP_PRICE })}
-            <Typography fontSize="md" textColor={"blue"}>
-              {(sum * STAMP_PRICE).toFixed(2)} CHF{" "}
-            </Typography>
+            {t("summary.numberOfStamps", { sum })}
           </Typography>
-        )}
+          {sum > 0 && (
+            <Typography fontSize="md">
+              {t("summary.totalPriceInfo", { sum, stampPrice: STAMP_PRICE })}
+              <Typography fontSize="md" textColor={"blue"}>
+                {(sum * STAMP_PRICE).toFixed(2)} CHF{" "}
+              </Typography>
+            </Typography>
+          )}
+        </div>
       </Stack>
     </>
   );
