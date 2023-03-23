@@ -1,4 +1,5 @@
 import { Grid, Card, AspectRatio, Box, Typography, Button } from "@mui/joy";
+import { Image } from "./Image";
 // TODO[i18n]
 export function Item({ onClick, name, stickers, img }) {
   return (
@@ -13,12 +14,12 @@ export function Item({ onClick, name, stickers, img }) {
           maxHeight="200px"
           sx={{ my: 2 }}
         >
-          <img src={img} loading="lazy" alt={name} />
+          <Image src={img} loading="lazy" alt={name} />
         </AspectRatio>
         <Box sx={{ display: "flex" }}>
           <div>
             <Typography level="body3">Number of stickers:</Typography>
-            <Typography fontSize="lg" fontWeight="lg" >
+            <Typography fontSize="lg" fontWeight="lg">
               {stickers}
             </Typography>
           </div>
