@@ -103,15 +103,13 @@ export function Calculator(props) {
           </Grid>
         </Grid>
         <Grid xs={12} lg={4} sx={{ display: { xs: "none", md: "initial" } }}>
-          <Typography level="h2" fontSize="md" sx={{ mt: 1, mb: 1.5}}>
+          <Typography level="h2" fontSize="md" sx={{ mt: 1, mb: 1.5 }}>
             Summary
           </Typography>
           <Stack spacing={1}>
             {summaryList.length > 0 ? summaryList : emptylistPlaceholder}
             <Divider />
-            <Typography fontSize="md">
-              Number of stamps: {sum}
-            </Typography>
+            <Typography fontSize="md">Number of stamps: {sum}</Typography>
             {sum > 0 && (
               <Typography fontSize="md">
                 Total price: {sum} stamps x {STICKER_PRICE} CHF ={" "}
@@ -131,20 +129,19 @@ export function Calculator(props) {
           bottom: 0,
           left: 0,
           width: "100vw",
-          height: 64,
+          height: 80,
           backgroundColor: "#FFF",
           borderTop: "2px solid #EEE",
           boxShadow: 3,
+          pl: 2,
         }}
-        direction="row"
+        direction="column"
         justifyContent="center"
-        alignItems="center"
+        spacing={1}
       >
-        <Typography level="h2" fontSize="md">
-          Number of stamps: {sum}
-        </Typography>
+        <Typography level="h6">Number of stamps: {sum}</Typography>
         {sum > 0 && (
-          <Typography level="h2" fontSize="md">
+          <Typography level="h6">
             Total price: {sum} stamps x {STICKER_PRICE} CHF ={" "}
             <Typography fontSize="md" textColor={"blue"}>
               {(sum * STICKER_PRICE).toFixed(2)} CHF{" "}
