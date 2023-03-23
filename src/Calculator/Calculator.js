@@ -1,9 +1,9 @@
-import { Container, Grid } from "@mui/joy";
+import { Box, Container, Grid } from "@mui/joy";
 import { useState } from "react";
 import { ItemsGrid } from "./ItemsGrid";
+import { LanguageChange } from "./LanguageChange";
 import { MobileFooter } from "./MobileFooter";
 import { Summary } from "./Summary";
-
 
 export function Calculator(props) {
   const [items, setItems] = useState([]);
@@ -24,16 +24,19 @@ export function Calculator(props) {
   };
 
   return (
-    <Container>
+    <Container sx={{ position: "relative" }}>
       <Grid container spacing={1}>
         <Grid xs={12} lg={8}>
           <ItemsGrid items={items} setItems={setItems} />
         </Grid>
         <Grid xs={12} lg={4} sx={{ display: { xs: "none", md: "initial" } }}>
-          <Summary items={items} changeItemQuantity={changeItemQuantity}/>
+          <Summary items={items} changeItemQuantity={changeItemQuantity} />
         </Grid>
       </Grid>
       <MobileFooter items={items} />
+      <Box sx={{ position: "absolute", right: 24, top: 0 }}>
+        <LanguageChange />
+      </Box>
     </Container>
   );
 }
