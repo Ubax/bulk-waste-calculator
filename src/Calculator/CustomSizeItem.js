@@ -8,6 +8,7 @@ export function CustomSizeItem({ onAdd }) {
   const { t } = useTranslation();
   const [sizes, setSizes] = useState([0, 0, 0]);
   const [weight, setWeight] = useState(0);
+  const disabled = sizes.some((dim) => dim === 0) || weight === 0;
   const stickers = calcNumberOfStickers(sizes, weight);
   const handleSizeChange = (index, newValue) => {
     setSizes((prev) => prev.map((v, i) => (index === i ? newValue : v)));
@@ -40,11 +41,9 @@ export function CustomSizeItem({ onAdd }) {
         />
         <Box sx={{ display: "flex", mt: 2 }}>
           <div>
-            <Typography level="body3">
-              {t("item.numberOfStamps")}
-            </Typography>
+            <Typography level="body3">{t("item.numberOfStamps")}</Typography>
             <Typography fontSize="lg" fontWeight="lg">
-              {stickers}
+              {disabled ? "0" : stickers}
             </Typography>
           </div>
           <Button
@@ -58,6 +57,7 @@ export function CustomSizeItem({ onAdd }) {
                 stickers,
               })
             }
+            disabled={disabled}
           >
             {t("customSizeItem.addButton")}
           </Button>
