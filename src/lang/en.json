@@ -6,5 +6,15 @@
     "heading":"Summary",
     "numberOfStamps": "Number of stamps: {{sum}}",
     "totalPriceInfo":"Total price: {{sum}} stamps x {{stampPrice}} CHF ="
+  },
+  "objects": {
+    "chair": "Chair",
+    "smallSofa": "Small sofa",
+    "bigSofa": "Big sofa",
+    "cupboard": "Cupboard",
+    "wardrobe": "Wardrobe",
+    "bag120l": "Bag max 120l",
+    "singleMattress": "Single mattress",
+    "doubleMattress": "Double mattress"
   }
 }

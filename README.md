@@ -26,7 +26,7 @@ You may also see any lint errors in the console.
 
 To add/edit/delete item with a predefined number of stamps edit the file `src/constants.js`.
 
-To add a new item append `INITIAL_ITEMS` with new record with desired properties.
+To add a new item append `INITIAL_ITEMS` with new record with desired properties. For objects names remember to add those to all language files - `src/lang/en.json` and `src/lang/de.json`.
 
 All photos have to be put in the `public/img/` folder to be available for reference in the `src/constants.js` file.
 
@@ -36,7 +36,7 @@ Edit the `STAMP_PRICE` in `src/constants.js` file.
 
 ### Translations
 
-Current implementation uses `i18next` for translations. The files with german and english translations are located in `src/lang`. 
+Current implementation uses `i18next` for translations. The files with german and english translations are located in `src/lang`.
 
 The default language is English. If you would like to change it you need to change `lng` property in `src/i18n.js`.
 
