@@ -4,6 +4,7 @@ import { ItemsGrid } from "./ItemsGrid";
 import { MobileFooter } from "./MobileFooter";
 import { Summary } from "./Summary";
 
+
 export function Calculator(props) {
   const [items, setItems] = useState([]);
 
