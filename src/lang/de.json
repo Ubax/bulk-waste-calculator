@@ -9,8 +9,8 @@
   },
   "customSizeItem": {
     "title": "Andere Größe",
-    "subtitleDimensions": "Geben Sie 3 Dimensionen an [cm]",
-    "subtitleWeight": "Geben Sie den Gewicht [kg]",
+    "subtitleDimensions": "3 Dimensionen [cm]",
+    "subtitleWeight": "Gewicht [kg]",
     "addButton": "Wählen"
   },
   "item": {
@@ -19,5 +19,15 @@
   },
   "itemsGrid": {
     "title": "Artikel"
+  },
+  "objects": {
+    "chair": "Stuhl",
+    "smallSofa": "Kleines sofa",
+    "bigSofa": "3-ier Sofa",
+    "cupboard": "Kleiner Schrank",
+    "wardrobe": "Schrank",
+    "bag120l": "Abfallsack max 120l",
+    "singleMattress": "Einzelmatratze",
+    "doubleMattress": "Doppelmatratze"
   }
 }

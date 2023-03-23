@@ -1,5 +1,6 @@
 import i18next from "i18next";
 
+//TODO: translation doesnt work
 export const INITIAL_ITEMS = [
   {
     name: i18next.t("objects.chair"),
