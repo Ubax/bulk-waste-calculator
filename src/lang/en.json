@@ -19,5 +19,15 @@
   },
   "itemsGrid": {
     "title": "Objects"
+  },
+  "objects": {
+    "chair": "Chair",
+    "smallSofa": "Small sofa",
+    "bigSofa": "Big sofa",
+    "cupboard": "Cupboard",
+    "wardrobe": "Wardrobe",
+    "bag120l": "Bag max 120l",
+    "singleMattress": "Single mattress",
+    "doubleMattress": "Double mattress"
   }
 }

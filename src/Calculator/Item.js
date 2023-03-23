@@ -1,5 +1,6 @@
 import { Grid, Card, AspectRatio, Box, Typography, Button } from "@mui/joy";
 import { useTranslation } from "react-i18next";
+import { Image } from "./Image";
 
 export function Item({ onClick, name, stickers, img }) {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ export function Item({ onClick, name, stickers, img }) {
           maxHeight="200px"
           sx={{ my: 2 }}
         >
-          <img src={img} loading="lazy" alt={name} />
+          <Image src={img} loading="lazy" alt={name} />
         </AspectRatio>
         <Box sx={{ display: "flex" }}>
           <div>
