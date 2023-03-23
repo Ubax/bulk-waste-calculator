@@ -36,7 +36,7 @@ export function CustomSizeItem({ onAdd }) {
         />
         <Box sx={{ display: "flex", mt: 2 }}>
           <div>
-            <Typography level="body3">Number of stickers:</Typography>
+            <Typography level="body3">Number of stamps:</Typography>
             <Typography fontSize="lg" fontWeight="lg">
               {stickers}
             </Typography>

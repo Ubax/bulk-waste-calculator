@@ -18,7 +18,7 @@ export function Item({ onClick, name, stickers, img }) {
         <Box sx={{ display: "flex" }}>
           <div>
             <Typography level="body3">Number of stickers:</Typography>
-            <Typography fontSize="lg" fontWeight="lg">
+            <Typography fontSize="lg" fontWeight="lg" >
               {stickers}
             </Typography>
           </div>

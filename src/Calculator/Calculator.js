@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Container, Divider } from "@mui/joy";
+import { Grid, Stack, Typography, Container, Divider, Card } from "@mui/joy";
 import { useState } from "react";
 import { CustomSizeItem } from "./CustomSizeItem";
 import { Item } from "./Item";
@@ -14,6 +14,8 @@ const INITIAL_ITEMS = [
   { name: "Single mattress", stickers: 1, img: "/small-mattress.png" },
   { name: "Double mattress", stickers: 2, img: "/big-mattress.png" },
 ];
+
+const STICKER_PRICE = 8.6;
 
 export function Calculator(props) {
   const [customItemKey, setCustomItemKey] = useState(0);
@@ -46,24 +48,41 @@ export function Calculator(props) {
     return result + quantity * stickers;
   }, 0);
 
+  const reps = (multiplier) => {
+    if (multiplier === 1) {
+      return "1 stamp";
+    } else {
+      return `${multiplier} stamps`;
+    }
+  };
   const summaryList = items
     .filter(({ quantity }) => quantity > 0)
     .map(({ name, quantity, stickers }) => (
       <SummaryItem
         key={`${name}_${quantity}`}
-        name={name}
+        name={`${name} (${reps(stickers)})`}
         quantity={quantity}
-        stickersSum={stickers * quantity}
         onIncrease={() => changeItemQuantity(name, 1)}
         onDecrease={() => changeItemQuantity(name, -1)}
       />
     ));
 
+  const emptylistPlaceholder = (
+    <>
+      <Divider sx={{ my: 0.5 }} />
+      <Typography variant="h1" sx={{ my: 2 }}>
+        Added items will appear here
+      </Typography>
+    </>
+  );
+
   return (
     <Container>
       <Grid container spacing={1}>
         <Grid xs={12} lg={8}>
-          <Typography variant="h1">Objects</Typography>
+          <Typography level="h2" fontSize="md" sx={{ my: 1 }}>
+            Objects
+          </Typography>
           <Grid container spacing={1}>
             <CustomSizeItem
               key={customItemKey}
@@ -84,14 +103,24 @@ export function Calculator(props) {
           </Grid>
         </Grid>
         <Grid xs={12} lg={4} sx={{ display: { xs: "none", md: "initial" } }}>
-          <Typography variant="h1">Summary</Typography>
-          {!!sum && (
-            <Stack spacing={1}>
-              {summaryList}
-              <Divider />
-              <Typography variant="h2">Stickers = {sum}</Typography>
-            </Stack>
-          )}
+          <Typography level="h2" fontSize="md" sx={{ mt: 1, mb: 1.5}}>
+            Summary
+          </Typography>
+          <Stack spacing={1}>
+            {summaryList.length > 0 ? summaryList : emptylistPlaceholder}
+            <Divider />
+            <Typography fontSize="md">
+              Number of stamps: {sum}
+            </Typography>
+            {sum > 0 && (
+              <Typography fontSize="md">
+                Total price: {sum} stamps x {STICKER_PRICE} CHF ={" "}
+                <Typography fontSize="md" textColor={"blue"}>
+                  {(sum * STICKER_PRICE).toFixed(2)} CHF{" "}
+                </Typography>
+              </Typography>
+            )}
+          </Stack>
         </Grid>
       </Grid>
       <Stack sx={{ width: 100, height: 64, display: { md: "none" } }}></Stack>
@@ -111,12 +140,17 @@ export function Calculator(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <Typography variant="h3" sx={{ mr: 1 }}>
-          Stickers:
+        <Typography level="h2" fontSize="md">
+          Number of stamps: {sum}
         </Typography>
-        <Typography variant="h3" fontWeight={900}>
-          {sum}
-        </Typography>
+        {sum > 0 && (
+          <Typography level="h2" fontSize="md">
+            Total price: {sum} stamps x {STICKER_PRICE} CHF ={" "}
+            <Typography fontSize="md" textColor={"blue"}>
+              {(sum * STICKER_PRICE).toFixed(2)} CHF{" "}
+            </Typography>
+          </Typography>
+        )}
       </Stack>
       <Stack alignItems="center" justifyContent="center" sx={{ mt: 4 }}>
         <Typography variant="body2">
