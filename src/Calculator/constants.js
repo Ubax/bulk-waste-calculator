@@ -1,3 +1,5 @@
+// TODO[i18n]
+
 export const INITIAL_ITEMS = [
     { name: "Chair", stickers: 1, img: "/img/chair.svg" },
     { name: "Small sofa", stickers: 1, img: "/img/small-sofa.svg" },

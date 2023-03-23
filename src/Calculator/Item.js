@@ -1,5 +1,5 @@
 import { Grid, Card, AspectRatio, Box, Typography, Button } from "@mui/joy";
-
+// TODO[i18n]
 export function Item({ onClick, name, stickers, img }) {
   return (
     <Grid xs={12} sm={6} md={4}>

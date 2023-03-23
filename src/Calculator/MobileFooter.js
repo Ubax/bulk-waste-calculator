@@ -1,7 +1,7 @@
 import { Container, Stack, Typography } from "@mui/joy";
 import { STAMP_PRICE } from "./constants";
 
-
+// TODO[i18n]
 export function MobileFooter(props) {
 
   const sum = props.items.reduce((result, { quantity, stickers }) => {

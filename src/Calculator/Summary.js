@@ -1,25 +1,22 @@
 import { Divider, Stack, Typography } from "@mui/joy";
 import { STAMP_PRICE } from "./constants";
 import { SummaryItem } from "./SummaryItem";
+import { useTranslation } from "react-i18next";
 
-export function Summary({items, changeItemQuantity}) {
+export function Summary({ items, changeItemQuantity }) {
+  const { t } = useTranslation();
   const sum = items.reduce((result, { quantity, stickers }) => {
     return result + quantity * stickers;
   }, 0);
 
-  const reps = (multiplier) => {
-    if (multiplier === 1) {
-      return "1 stamp";
-    } else {
-      return `${multiplier} stamps`;
-    }
-  };
   const summaryList = items
     .filter(({ quantity }) => quantity > 0)
     .map(({ name, quantity, stickers }) => (
       <SummaryItem
         key={`${name}_${quantity}`}
-        name={`${name} (${reps(stickers)})`}
+        name={`${name} (${t("summary.stamp", {
+          count: stickers,
+        })})`}
         quantity={quantity}
         onIncrease={() => changeItemQuantity(name, 1)}
         onDecrease={() => changeItemQuantity(name, -1)}
@@ -30,7 +27,7 @@ export function Summary({items, changeItemQuantity}) {
     <>
       <Divider sx={{ my: 0.5 }} />
       <Typography variant="h1" sx={{ my: 2 }}>
-        Added items will appear here
+        {t("summary.noItemsPlaceholder")}
       </Typography>
     </>
   );
@@ -43,10 +40,12 @@ export function Summary({items, changeItemQuantity}) {
       <Stack spacing={1}>
         {summaryList.length > 0 ? summaryList : emptylistPlaceholder}
         <Divider />
-        <Typography fontSize="md">Number of stamps: {sum}</Typography>
+        <Typography fontSize="md">
+          {t("summary.numberOfStamps", { sum })}
+        </Typography>
         {sum > 0 && (
           <Typography fontSize="md">
-            Total price: {sum} stamps x {STAMP_PRICE} CHF ={" "}
+            {t("summary.totalPriceInfo", { sum, stampPrice: STAMP_PRICE })}
             <Typography fontSize="md" textColor={"blue"}>
               {(sum * STAMP_PRICE).toFixed(2)} CHF{" "}
             </Typography>

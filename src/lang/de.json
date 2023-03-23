@@ -1,0 +1,8 @@
+{
+    "summary": {
+      "numberOfStamps_one": "{{count}} stamp",
+      "numberOfStamps_other": "{{count}} stamp",
+      "noItemsPlaceholder": "Added items will appear here 1234"
+    }
+  }
+  

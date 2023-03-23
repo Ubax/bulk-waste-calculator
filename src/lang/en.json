@@ -1,0 +1,10 @@
+{
+  "summary": {
+    "stamp_one": "{{count}} stamp",
+    "stamp_other": "{{count}} stamps",
+    "noItemsPlaceholder": "Added items will appear here###",
+    "heading":"Summary",
+    "numberOfStamps": "Number of stamps: {{sum}}",
+    "totalPriceInfo":"Total price: {{sum}} stamps x {{stampPrice}} CHF ="
+  }
+}

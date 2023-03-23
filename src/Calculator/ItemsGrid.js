@@ -3,7 +3,7 @@ import { useState } from "react";
 import { INITIAL_ITEMS } from "./constants";
 import { CustomSizeItem } from "./CustomSizeItem";
 import { Item } from "./Item";
-
+// TODO[i18n]
 export function ItemsGrid({items, setItems}) {
   const [customItemKey, setCustomItemKey] = useState(0);
 

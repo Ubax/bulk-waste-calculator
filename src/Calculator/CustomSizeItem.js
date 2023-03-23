@@ -3,6 +3,8 @@ import Input from "@mui/joy/Input";
 import { useState } from "react";
 import { calcNumberOfStickers } from "./calcNumberOfStickers";
 
+// TODO[i18n]
+
 export function CustomSizeItem({ onAdd }) {
   const [sizes, setSizes] = useState([0, 0, 0]);
   const [weight, setWeight] = useState(0);
