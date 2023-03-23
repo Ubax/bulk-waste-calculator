@@ -2,12 +2,17 @@ import { Grid, Card, AspectRatio, Box, Typography, Button } from "@mui/joy";
 
 export function Item({ onClick, name, stickers, img }) {
   return (
-    <Grid xs={6} md={4}>
+    <Grid xs={12} sm={6} md={4}>
       <Card variant="outlined">
         <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
           {name}
         </Typography>
-        <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+        <AspectRatio
+          objectFit="contain"
+          minHeight="120px"
+          maxHeight="200px"
+          sx={{ my: 2 }}
+        >
           <img src={img} loading="lazy" alt={name} />
         </AspectRatio>
         <Box sx={{ display: "flex" }}>

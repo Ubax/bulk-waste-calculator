@@ -1,4 +1,4 @@
-import { Grid, Card, Typography, Button, Box } from "@mui/joy";
+import { Grid, Card, Typography, Button, Box, Stack } from "@mui/joy";
 import Input from "@mui/joy/Input";
 import { useState } from "react";
 import { calcNumberOfStickers } from "./calcNumberOfStickers";
@@ -11,30 +11,30 @@ export function CustomSizeItem({ onAdd }) {
     setSizes((prev) => prev.map((v, i) => (index === i ? newValue : v)));
   };
   return (
-    <Grid xs={6} md={4}>
+    <Grid xs={12} sm={6} md={4}>
       <Card variant="outlined">
         <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
           Custom object
         </Typography>
-        <Typography level="body2">
-          Provide 3 dimensions of the object
+        <Typography level="body2" sx={{ mt: 2 }}>
+          Provide 3 dimensions [cm]
         </Typography>
-        {sizes.map((size, index) => (
-          <Input
-            value={size}
-            endDecorator={<Typography>cm</Typography>}
-            onChange={({ target }) => handleSizeChange(index, target.value)}
-          />
-        ))}
-        <Typography level="body2">
-          Provide approx weight of the object
-        </Typography>
+        <Stack direction="row" spacing={1}>
+          {sizes.map((size, index) => (
+            <Input
+              key={index}
+              value={size}
+              onChange={({ target }) => handleSizeChange(index, target.value)}
+            />
+          ))}
+        </Stack>
+        <Typography level="body2">Provide approx weight</Typography>
         <Input
           value={weight}
           endDecorator={<Typography>kg</Typography>}
           onChange={({ target }) => setWeight(target.value)}
         />
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", mt: 2 }}>
           <div>
             <Typography level="body3">Number of stickers:</Typography>
             <Typography fontSize="lg" fontWeight="lg">
