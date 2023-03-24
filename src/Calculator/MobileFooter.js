@@ -29,7 +29,7 @@ export function MobileFooter(props) {
         spacing={1}
       >
         <Typography level="h6">
-          {t("summary.numberOfStamps")} {sum}
+          {t("summary.numberOfStamps", { sum })}
         </Typography>
         {sum > 0 && (
           <Typography fontSize="md">
