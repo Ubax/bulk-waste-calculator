@@ -14,7 +14,7 @@ export function SummaryItem({ onIncrease, onDecrease, name, quantity }) {
           >{`${quantity} x`}</Typography>{" "}
           {name}
         </Typography>
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} sx={{ ml: 1 }}>
           <Button onClick={onIncrease}>
             <AddIcon />
           </Button>

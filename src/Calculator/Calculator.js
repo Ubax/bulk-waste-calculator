@@ -29,7 +29,7 @@ export function Calculator(props) {
         <Grid xs={12} lg={8}>
           <ItemsGrid items={items} setItems={setItems} />
         </Grid>
-        <Grid xs={12} lg={4} sx={{ display: { xs: "none", md: "initial" } }}>
+        <Grid xs={12} lg={4}>
           <Summary items={items} changeItemQuantity={changeItemQuantity} />
         </Grid>
       </Grid>
