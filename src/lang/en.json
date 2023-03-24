@@ -3,15 +3,16 @@
     "stamp_one": "{{count}} stamp",
     "stamp_other": "{{count}} stamps",
     "noItemsPlaceholder": "Added items will appear here",
-    "heading":"Summary",
+    "heading": "Summary",
     "numberOfStamps": "Number of stamps: {{sum}}",
-    "totalPriceInfo":"Total price: {{sum}} stamps x {{stampPrice}} CHF ="
+    "totalPriceInfo": "Total price: {{sum}} stamps x {{stampPrice}} CHF ="
   },
   "customSizeItem": {
     "title": "Custom object",
     "subtitleDimensions": "Provide 3 dimensions [cm]",
     "subtitleWeight": "Provide approx weight [kg]",
-    "addButton": "Add"
+    "addButton": "Add",
+    "sizeIncorrectOrToBigObject": "Object is too big"
   },
   "item": {
     "numberOfStamps": "Number of stamps:",

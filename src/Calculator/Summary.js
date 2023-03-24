@@ -11,15 +11,16 @@ export function Summary({ items, changeItemQuantity }) {
 
   const summaryList = items
     .filter(({ quantity }) => quantity > 0)
-    .map(({ name, quantity, stickers }) => (
+    .map(({ name, quantity, stickers, id }) => (
       <SummaryItem
-        key={`${name}_${quantity}`}
-        name={`${name} (${t("summary.stamp", {
+        key={`${id}_${quantity}`}
+        id={id}
+        name={`${name(t)} (${t("summary.stamp", {
           count: stickers,
         })})`}
         quantity={quantity}
-        onIncrease={() => changeItemQuantity(name, 1)}
-        onDecrease={() => changeItemQuantity(name, -1)}
+        onIncrease={() => changeItemQuantity(id, 1)}
+        onDecrease={() => changeItemQuantity(id, -1)}
       />
     ));
 

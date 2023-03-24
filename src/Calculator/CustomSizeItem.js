@@ -6,13 +6,20 @@ import { useTranslation } from "react-i18next";
 
 export function CustomSizeItem({ onAdd }) {
   const { t } = useTranslation();
-  const [sizes, setSizes] = useState([0, 0, 0]);
-  const [weight, setWeight] = useState(0);
-  const disabled = sizes.some((dim) => dim === 0) || weight === 0;
+  const [sizes, setSizes] = useState(['', '', '']);
+  const [weight, setWeight] = useState('');
+  const disabled = sizes.some((dim) => !dim) || weight === 0;
   const stickers = calcNumberOfStickers(sizes, weight);
   const handleSizeChange = (index, newValue) => {
-    setSizes((prev) => prev.map((v, i) => (index === i ? newValue : v)));
+    if(newValue.match(/^\d*\.?\d*$/g)){
+      setSizes((prev) => prev.map((v, i) => (index === i ? newValue : v)));
+    }
   };
+  const stickerNumberText = disabled
+    ? "0"
+    : isNaN(stickers)
+    ? t("customSizeItem.sizeIncorrectOrToBigObject")
+    : stickers;
   return (
     <Grid xs={12} sm={6} md={4}>
       <Card variant="outlined">
@@ -27,6 +34,7 @@ export function CustomSizeItem({ onAdd }) {
             <Input
               key={index}
               value={size}
+              placeholder="0"
               onChange={({ target }) => handleSizeChange(index, target.value)}
             />
           ))}
@@ -38,12 +46,13 @@ export function CustomSizeItem({ onAdd }) {
           value={weight}
           endDecorator={<Typography>kg</Typography>}
           onChange={({ target }) => setWeight(target.value)}
+          placeholder="0"
         />
         <Box sx={{ display: "flex", mt: 2 }}>
           <div>
             <Typography level="body3">{t("item.numberOfStamps")}</Typography>
             <Typography fontSize="lg" fontWeight="lg">
-              {disabled ? "0" : stickers}
+              {stickerNumberText}
             </Typography>
           </div>
           <Button
@@ -53,7 +62,8 @@ export function CustomSizeItem({ onAdd }) {
             sx={{ ml: "auto", fontWeight: 600 }}
             onClick={() =>
               onAdd({
-                name: sizes.join("x"),
+                id: sizes.join("x"),
+                name: () => sizes.join("x"),
                 stickers,
               })
             }

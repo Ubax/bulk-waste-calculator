@@ -3,15 +3,16 @@
     "stamp_one": "{{count}} Marke",
     "stamp_other": "{{count}} Marken",
     "noItemsPlaceholder": "Ausgewählte Artikel werden hier angezeigt",
-    "heading":" Überblick",
+    "heading": " Überblick",
     "numberOfStamps": "Anzahl von Marken: {{sum}}",
-    "totalPriceInfo":"Gesamtpreis: {{sum}} Marken x {{stampPrice}} CHF ="
+    "totalPriceInfo": "Gesamtpreis: {{sum}} Marken x {{stampPrice}} CHF ="
   },
   "customSizeItem": {
     "title": "Andere Größe",
     "subtitleDimensions": "3 Dimensionen [cm]",
     "subtitleWeight": "Gewicht [kg]",
-    "addButton": "Wählen"
+    "addButton": "Wählen",
+    "sizeIncorrectOrToBigObject": "Das Objekt ist zu groß"
   },
   "item": {
     "numberOfStamps": "Anzahl von Marken:",

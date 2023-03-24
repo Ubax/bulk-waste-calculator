@@ -8,8 +8,8 @@ import { Summary } from "./Summary";
 export function Calculator(props) {
   const [items, setItems] = useState([]);
 
-  const changeItemQuantity = (name, change) => {
-    const index = items.findIndex((item) => item.name === name);
+  const changeItemQuantity = (id, change) => {
+    const index = items.findIndex((item) => item.id === id);
     if (index >= 0) {
       if (items[index].quantity + change === 0) {
         setItems((prev) => prev.filter((_, i) => i !== index));
