@@ -12,7 +12,7 @@
     "subtitleDimensions": "3 Dimensionen [cm]",
     "subtitleWeight": "Gewicht [kg]",
     "addButton": "Wählen",
-    "sizeIncorrectOrToBigObject": "Das Objekt ist zu groß"
+    "sizeIncorrectOrToBigObject": "Zu groß"
   },
   "item": {
     "numberOfStamps": "Anzahl von Marken:",

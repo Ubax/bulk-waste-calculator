@@ -12,7 +12,7 @@
     "subtitleDimensions": "Provide 3 dimensions [cm]",
     "subtitleWeight": "Provide approx weight [kg]",
     "addButton": "Add",
-    "sizeIncorrectOrToBigObject": "Object is too big"
+    "sizeIncorrectOrToBigObject": "Too big"
   },
   "item": {
     "numberOfStamps": "Number of stamps:",
