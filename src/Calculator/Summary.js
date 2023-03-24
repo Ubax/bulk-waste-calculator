@@ -47,7 +47,10 @@ export function Summary({ items, changeItemQuantity }) {
           {sum > 0 && (
             <Typography fontSize="md">
               {t("summary.totalPriceInfo", { sum, stampPrice: STAMP_PRICE })}
-              <Typography fontSize="md" textColor={"blue"}>
+              <Typography
+                fontSize="md"
+                sx={(theme) => ({ color: theme.palette.primary[500] })}
+              >
                 {(sum * STAMP_PRICE).toFixed(2)} CHF{" "}
               </Typography>
             </Typography>
